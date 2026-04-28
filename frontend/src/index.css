@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; background: #0a0e12; color: #d8dee4; font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.025; mix-blend-mode: overlay;
+}
+
+.scanlines {
+  background-image: repeating-linear-gradient(0deg, rgba(127, 255, 178, 0.008) 0px, rgba(127, 255, 178, 0.008) 1px, transparent 1px, transparent 3px);
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #11161c; }
+::-webkit-scrollbar-thumb { background: #2f3a46; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4a5866; }
+
+.cursor-blink::after { content: '▊'; color: #7FFFB2; animation: blink 1s step-end infinite; margin-left: 2px; }
+@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+.data-stream {
+  background: linear-gradient(90deg, transparent 0%, rgba(127, 255, 178, 0.4) 50%, transparent 100%);
+  background-size: 200% 100%; animation: stream 1.5s linear infinite;
+}
+@keyframes stream { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
